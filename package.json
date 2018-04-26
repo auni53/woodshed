@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha -r test/setup.js",
+    "test": "mocha -r test/setup.js --recursive",
     "deploy": "gcloud app deploy"
   },
   "dependencies": {
