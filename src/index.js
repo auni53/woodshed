@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const connect = require('./src/db/db.js').connect;
+const connect = require('./db/db.js').connect;
 
 app.get('/', (req, res) => {
 
