@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node src/index.js",
-    "test": "mocha",
+    "test": "mocha --file test/setup.js --recursive test",
     "deploy": "gcloud app deploy"
   },
   "dependencies": {
@@ -19,7 +19,7 @@
   },
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^5.1.1",
-    "supertest": "^3.0.0"
+    "chai-http": "^4.0.0",
+    "mocha": "^5.1.1"
   }
 }
