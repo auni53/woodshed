@@ -7,7 +7,8 @@
   "author": "auni53 <auni.ahsan53@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "deploy": "gcloud app deploy"
   },
   "dependencies": {
     "express": "^4.16.3",
