@@ -16,10 +16,12 @@ v4:
 
 
 ~~ API:
+
 > GET /user/exercises
 > POST /user { userid, exercisename, speed }
 
 ~~ Table:
+
 Users
 id username
 
