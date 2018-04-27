@@ -5,19 +5,40 @@ DATABASE_NAME     = 'woodshed'
 DATABASE_USERNAME = 'postgres'
 DATABASE_PASSWORD = 'practice'
 
-function connect() {
-  console.log("the machines are learning");
+class Database {
+  constructor() {
+    const model = new Sequelize(
+      DATABASE_NAME,
+      DATABASE_USERNAME,
+      DATABASE_PASSWORD,
+      {
+        dialect: 'postgres',
+        host: DATABASE_ENDPOINT,
+        operatorAliases: false,
+      },
+    );
 
-  const db = new Sequelize(
-    DATABASE_NAME,
-    DATABASE_USERNAME,
-    DATABASE_PASSWORD,
-    {
-      dialect: 'postgres',
-      host: DATABASE_ENDPOINT,
-      operatorAliases: false,
+    const User = model.define('user', {
+      id: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+      }, 
+      username: Sequelize.STRING,
     });
-  return db;
+
+    const Exercise = model.define('exercise', {
+      name: Sequelize.STRING,
+      tempo: Sequelize.INTEGER,
+    });
+    Exercise.belongsTo(User);
+
+    this.model = model;
+  }
+
+  close() {
+    this.model.close()
+  }
 }
 
 /*
@@ -63,4 +84,4 @@ const Session = sequelize.define('session', {
 // });
 
 
-module.exports = connect;
+module.exports = Database;

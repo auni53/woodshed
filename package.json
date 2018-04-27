@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node src/index.js",
     "test": "mocha -r test/setup.js --recursive",
+    "debug": "mocha -r test/setup.js --recursive debug",
     "deploy": "gcloud app deploy"
   },
   "dependencies": {

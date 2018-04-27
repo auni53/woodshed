@@ -1,8 +1,17 @@
-const connect = require('../../src/db/db.js');
+const Database = require('../../src/db/db.js');
 
-describe('connect_db', function() {
-  it('connection', function(){
-    connect();
+describe('Database class', function() {
+  it('constructs with a sequalize object', function(){
+    db = new Database();
+    db.should.not.be.undefined;
+    db.model.should.be.a('object');
+  });
+
+  it('successfully can be closed', function(){
+    db = new Database();
+    db.should.not.be.undefined;
+    db.model.should.not.be.undefined;
+    db.close()
   });
 })
 
