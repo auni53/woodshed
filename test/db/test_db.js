@@ -5,7 +5,6 @@ describe('connect_db', function() {
     connect();
   });
 })
+
 describe('create_tables', function() {});
 describe('insert_tables', function() {});
-
-

@@ -1,15 +1,23 @@
-const connect = function() {
-  console.log("the machines are learning");
-  const Sequelize = require('sequelize');
-  const sequelize = new Sequelize('woodshed', 'postgres', 'practice',
-	{dialect: 'postgres', host:'35.193.32.100', operatorAliases: false});
+const Sequelize = require('sequelize');
 
-  sequelize.authenticate().then(() => {
-      console.log('Connection has been established successfully.');
-    })
-    .catch(err => {
-      console.error('Unable to connect to the database:', err);
-  });
+DATABASE_ENDPOINT = '35.193.32.100'
+DATABASE_NAME     = 'woodshed'
+DATABASE_USERNAME = 'postgres'
+DATABASE_PASSWORD = 'practice'
+
+function connect() {
+  console.log("the machines are learning");
+
+  const db = new Sequelize(
+    DATABASE_NAME,
+    DATABASE_USERNAME,
+    DATABASE_PASSWORD,
+    {
+      dialect: 'postgres',
+      host: DATABASE_ENDPOINT,
+      operatorAliases: false,
+    });
+  return db;
 }
 
 /*
