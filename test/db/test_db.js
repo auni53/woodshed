@@ -21,6 +21,3 @@ describe('Database class', function() {
     if (db.active) db.end();
   });
 })
-
-describe('create_tables', function() {});
-describe('insert_tables', function() {});
