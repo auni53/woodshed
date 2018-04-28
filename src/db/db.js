@@ -1,4 +1,4 @@
-const Sequelize = require('sequelize');
+const { Client } = require('pg');
 
 DATABASE_ENDPOINT = '35.193.32.100'
 DATABASE_NAME     = 'woodshed'
@@ -7,37 +7,18 @@ DATABASE_PASSWORD = 'practice'
 
 class Database {
   constructor() {
-    const model = new Sequelize(
-      DATABASE_NAME,
-      DATABASE_USERNAME,
-      DATABASE_PASSWORD,
-      {
-        dialect: 'postgres',
-        host: DATABASE_ENDPOINT,
-        operatorAliases: false,
-      },
-    );
-
-    const User = model.define('user', {
-      id: {
-        type: Sequelize.INTEGER,
-        autoIncrement: true,
-        primaryKey: true
-      }, 
-      username: Sequelize.STRING,
-    });
-
-    const Exercise = model.define('exercise', {
-      name: Sequelize.STRING,
-      tempo: Sequelize.INTEGER,
-    });
-    Exercise.belongsTo(User);
-
-    this.model = model;
+    this.client = new Client();
+    this.active = false;
   }
 
-  close() {
-    this.model.close()
+  async connect() {
+    await this.client.connect();
+    this.active = true;
+  }
+
+  async end() {
+    await this.client.end();
+    this.active = false;
   }
 }
 
