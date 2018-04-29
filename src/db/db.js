@@ -1,13 +1,10 @@
 const { Client } = require('pg');
-
-DATABASE_ENDPOINT = '35.193.32.100'
-DATABASE_NAME     = 'woodshed'
-DATABASE_USERNAME = 'postgres'
-DATABASE_PASSWORD = 'practice'
+const config = require('src/config');
 
 class Database {
-  constructor() {
-    this.client = new Client();
+  constructor(test) {
+    this.config = config()['database'];
+    this.client = new Client(this.config);
     this.active = false;
   }
 

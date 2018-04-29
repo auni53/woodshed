@@ -1,0 +1,6 @@
+database:
+  host: '35.193.32.100'
+  port: 5432
+  database: woodshed
+  user: postgres
+  password: practice
