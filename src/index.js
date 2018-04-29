@@ -1,11 +1,6 @@
-const express = require('express');
-const app = express();
-
-const connect = require('./db/db.js').connect;
+const app = require('express')();
 
 app.get('/', (req, res) => {
-
-
   res.send('Hello World!');
 });
 
