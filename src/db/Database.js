@@ -1,7 +1,7 @@
 const { Client } = require('pg');
 const config = require('src/config');
 
-class Database {
+module.exports = class Database {
   constructor(test) {
     this.config = config()['database'];
     this.client = new Client(this.config);
@@ -18,5 +18,3 @@ class Database {
     this.active = false;
   }
 }
-
-module.exports = Database;

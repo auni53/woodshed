@@ -1,15 +1,11 @@
 
 describe('resolver', () => {
   it('resolves relative path', () => {
-    require.resolve('../src/db/db.js');
-    require.resolve('../src/db/db');
+    require.resolve('../src/db/Database.js');
+    require.resolve('../src/db/Database');
   });
 
   it('resolves in src folder', () => {
-    require.resolve('src/db/db');
+    require.resolve('src/db/Database');
   });
-
-  // it('resolves searchingly', () => {
-  //   require.resolve('db');
-  // });
 });

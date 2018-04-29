@@ -1,4 +1,4 @@
-const Database = require('src/db/db.js');
+const Database = require('src/db/Database.js');
 
 describe('Database class', function() {
   beforeEach(() => {
@@ -42,5 +42,5 @@ describe('Database class', function() {
     afterEach(() => {
       if (db.active) db.end();
     });
-  });
+  }); 
 })
