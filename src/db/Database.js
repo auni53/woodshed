@@ -17,4 +17,8 @@ module.exports = class Database {
     await this.client.end();
     this.active = false;
   }
+
+  async q(uery) {
+    return this.client.query(uery);
+  }
 }
